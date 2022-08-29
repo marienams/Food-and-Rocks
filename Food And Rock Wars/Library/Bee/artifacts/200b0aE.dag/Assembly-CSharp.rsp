@@ -349,7 +349,6 @@
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Counter/Counter.cs"
-"Assets/Scripts/FollowPlayer.cs"
 "Assets/Scripts/PlayerController.cs"
 -langversion:9.0
 
