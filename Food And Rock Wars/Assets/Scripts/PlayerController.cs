@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private Rigidbody playerRb;
+    private Animator playerAnim;
 
+    private bool isOnground;
+    public float jumpForce = 10.0f;
     private float horizontalInput;
     private float verticalInput;
     public float speed = 5.0f;
@@ -15,14 +19,15 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerRb = GetComponent<Rigidbody>();
+        playerAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         InputMovement();
-        
+        Jump();
 
     }
 
@@ -41,6 +46,36 @@ public class PlayerController : MonoBehaviour
         if (transform.position.z < -zRange)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -zRange);
+        }
+        Debug.Log(isOnground);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("ground"))
+        {
+            isOnground = true;
+            
+            
+        }
+        else
+        {
+            isOnground = false;
+        }
+    }
+
+    private void Jump()
+    {
+        if(Input.GetKeyDown(KeyCode.Space) && isOnground)
+        {
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isOnground = false;
+            playerAnim.SetBool("Jump_b", true);
+            Debug.Log(isOnground);
+        }
+        else
+        {
+            playerAnim.SetBool("Jump_b", false);
         }
     }
 }
