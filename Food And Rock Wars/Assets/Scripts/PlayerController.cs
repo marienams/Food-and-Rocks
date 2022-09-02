@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     public float speed = 5.0f;
     public float turnSpeed = 20.0f;
     private float zRange =13.0f;
+    private bool inWater = false;
+
+    private bool gameOver = false;
 
 
     // Start is called before the first frame update
@@ -39,15 +42,27 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
         transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput);
 
+        
+
+        
+
         if (transform.position.z > zRange)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zRange);
         }
-        if (transform.position.z < -zRange)
+        else if (transform.position.z < -zRange)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -zRange);
         }
-        Debug.Log(isOnground);
+
+        if (transform.position.x < -15  )
+        {
+            transform.position = new Vector3(-15, transform.position.y, transform.position.z);
+        }
+        else if (transform.position.x > -3)
+        {
+            transform.position = new Vector3(-3, transform.position.y, transform.position.z);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -61,7 +76,9 @@ public class PlayerController : MonoBehaviour
         else
         {
             isOnground = false;
+            
         }
+        
     }
 
     private void Jump()
