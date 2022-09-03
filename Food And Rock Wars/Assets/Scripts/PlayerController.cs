@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
     public float speed = 5.0f;
-    public float turnSpeed = 20.0f;
+    //public float turnSpeed = 20.0f;
     private float zRange =13.0f;
     private bool inWater = false;
 
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     private void InputMovement()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-        transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed * horizontalInput);
+        transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
 
         verticalInput = Input.GetAxis("Vertical");
         transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput);
