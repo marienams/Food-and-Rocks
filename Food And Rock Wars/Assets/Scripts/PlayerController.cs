@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRb;
     private Animator playerAnim;
 
+    
+
     private bool isOnground;
     public float jumpForce = 10.0f;
     private float horizontalInput;
@@ -16,14 +18,15 @@ public class PlayerController : MonoBehaviour
     private float zRange =13.0f;
     private bool inWater = false;
 
-    private bool gameOver = false;
-
+    
 
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
+
+        
     }
 
     // Update is called once per frame
@@ -70,16 +73,19 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("ground"))
         {
             isOnground = true;
-            
+            Debug.Log("On Ground");
             
         }
-        else
+        else 
         {
             isOnground = false;
             
         }
         
+        
     }
+
+    
 
     private void Jump()
     {

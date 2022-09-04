@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3723172596352483877}
   - component: {fileID: 3723172596353482981}
   - component: {fileID: 3723172596355520651}
+  - component: {fileID: 3864609896523113467}
+  - component: {fileID: -5080434580624114371}
   m_Layer: 0
   m_Name: third_Prize
   m_TagString: enemy
@@ -97,3 +99,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwSpeed: 10
+--- !u!114 &3864609896523113467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723172596355489317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da403ef5eec2d478b99ee5b5a0ecdc97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &-5080434580624114371
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723172596355489317}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.418465, y: 1.0799998, z: 2.418465}
+  m_Center: {x: 0, y: 0, z: 0}
